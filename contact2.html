@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contact – اتصل بنا – Afulki n Tamazirt</title>
+    <link rel="stylesheet" href="style2.css">
+    <script src="CODE.JS"></script>
+  </head>
+  <body>
+    <header class="entete">
+      <div class="conteneur">
+        <a class="logo" href="accueil2.html">
+          <img class="logo-icone" src="image2/logo-icone.png" alt="">
+          <img class="logo-nom" src="image2/logo-nom.png" alt="Afulki n Tamazirt">
+        </a>
+        <nav>
+          <ul class="menu">
+            <li><a href="accueil2.html"><span class="fr">Accueil</span><span class="ar">الرئيسية</span></a></li>
+            <li><a href="conteun2.html"><span class="fr">Notre collection</span><span class="ar">مجموعتنا</span></a></li>
+            <li><a href="contact2.html" aria-current="page"><span class="fr">Contact</span><span class="ar">اتصل بنا</span></a></li>
+            <li><button class="bouton-langue" id="langue" type="button"><span class="fr">العربية</span><span class="ar">Français</span></button></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="conteneur">
+          <h1><span class="fr">Contact</span><span class="ar">اتصل بنا</span></h1>
+          <p><span class="fr">Remplissez le formulaire, nous vous répondons rapidement.</span><span class="ar">املأ الاستمارة وسنرد عليك في أقرب وقت.</span></p>
+          <form class="formulaire" action="#" method="post">
+            <label for="nom"><span class="fr">Nom complet</span><span class="ar">الاسم الكامل</span></label>
+            <input type="text" id="nom" name="nom" required>
+
+            <label for="tel"><span class="fr">Téléphone</span><span class="ar">الهاتف</span></label>
+            <input type="tel" id="tel" name="tel" required>
+
+            <label for="email"><span class="fr">Email</span><span class="ar">البريد الإلكتروني</span></label>
+            <input type="email" id="email" name="email">
+
+            <label for="type"><span class="fr">Votre demande</span><span class="ar">طلبك</span></label>
+            <select id="type" name="type">
+              <option value="achat">Acheter un vêtement · شراء لباس</option>
+              <option value="location">Louer un vêtement · كراء لباس</option>
+              <option value="accessoires">Accessoires · إكسسوارات</option>
+              <option value="cosmetiques">Cosmétiques · مستحضرات تجميل</option>
+            </select>
+
+            <label for="date"><span class="fr">Date de l’événement (pour une location)</span><span class="ar">تاريخ المناسبة (للكراء)</span></label>
+            <input type="date" id="date" name="date">
+
+            <label for="message"><span class="fr">Message</span><span class="ar">الرسالة</span></label>
+            <textarea id="message" name="message" rows="5"></textarea>
+
+            <button class="bouton" type="submit"><span class="fr">Envoyer ma demande</span><span class="ar">أرسل طلبي</span></button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="pied">
+      <div class="conteneur">
+        <div class="colonne">
+          <h3><span class="fr">Adresse</span><span class="ar">العنوان</span></h3>
+          <p><span class="fr">12 rue des Artisans<br>Agadir, Maroc</span><span class="ar">12 زنقة الصناع<br>أكادير، المغرب</span></p>
+        </div>
+        <div class="colonne">
+          <h3><span class="fr">Horaires</span><span class="ar">أوقات العمل</span></h3>
+          <p><span class="fr">Lundi – samedi : 10h – 19h<br>Dimanche : fermé</span><span class="ar">من الاثنين إلى السبت : 10:00 – 19:00<br>الأحد : مغلق</span></p>
+        </div>
+        <div class="colonne">
+          <h3><span class="fr">Liens</span><span class="ar">روابط</span></h3>
+          <ul>
+            <li><a href="accueil2.html"><span class="fr">Accueil</span><span class="ar">الرئيسية</span></a></li>
+            <li><a href="conteun2.html"><span class="fr">Notre collection</span><span class="ar">مجموعتنا</span></a></li>
+            <li><a href="contact2.html"><span class="fr">Contact</span><span class="ar">اتصل بنا</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="copyright">© 2026 Afulki n Tamazirt</p>
+    </footer>
+  </body>
+</html>
+

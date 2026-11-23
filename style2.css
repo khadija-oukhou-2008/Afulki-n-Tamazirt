@@ -1,0 +1,237 @@
+/* ===== 1. BASES ===== */
+/* box-sizing global : padding et bordures comptent dans la largeur */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;                       /* marges du body retirées */
+  font-family: system-ui, Arial, sans-serif;
+  line-height: 1.6;
+  color: #2a1620;
+  background: #f8f4f6;
+}
+
+/* conteneur centré : largeur max + marges auto */
+.conteneur {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+h1, h2, h3 { font-family: Georgia, serif; line-height: 1.2; }
+a { color: #5b1a2b; }
+
+/* ===== 2. EN-TÊTE : logo à gauche, menu à droite, sticky ===== */
+.entete {
+  position: sticky;                /* reste visible en défilant */
+  top: 0;
+  z-index: 10;
+  background: #ffffff;
+  border-bottom: 3px solid #b88a2e;
+}
+.entete .conteneur {
+  display: flex;
+  justify-content: space-between;  /* logo à gauche, menu à droite */
+  align-items: center;
+  min-height: 84px;
+  flex-wrap: wrap;                 /* le menu passe dessous sur petit écran */
+  gap: 8px 20px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+/* icône du logo à gauche, nom à côté (images séparées) */
+.logo-icone { height: 64px; width: auto; }
+.logo-nom { height: 64px; width: auto; }
+.menu {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.menu a { text-decoration: none; padding: 6px 0; }
+.menu a[aria-current="page"] { border-bottom: 2px solid #b88a2e; font-weight: bold; }
+
+/* ===== 3. BANNIÈRE : image + titre centré ===== */
+.banniere {
+  display: flex;
+  flex-direction: column;          /* éléments empilés verticalement */
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  padding: 40px 20px;
+  text-align: center;
+  color: #ffffff;
+  /* voile sombre pour la lisibilité + image qui remplit la zone */
+  background:
+    linear-gradient(rgba(42, 22, 32, 0.62), rgba(42, 22, 32, 0.62)),
+    url("images/banniere.jpg") center / cover no-repeat #5b1a2b;
+}
+.banniere h1 { font-size: clamp(2rem, 6vw, 3.2rem); margin: 0 0 12px; }
+.banniere p { max-width: 540px; margin: 0 0 24px; }
+
+.bouton {
+  display: inline-block;
+  padding: 12px 28px;
+  border: 0;
+  border-radius: 999px;
+  background: #b88a2e;
+  color: #ffffff;
+  font-size: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+.bouton:hover { background: #8f6a1c; }
+
+/* ===== 4. SECTIONS ET CARTES ===== */
+.section { padding: 48px 0; }
+.section h2 { margin-top: 0; }
+
+.cartes {
+  display: flex;
+  flex-wrap: wrap;                 /* passent à la ligne si pas de place */
+  gap: 20px;
+}
+.carte {
+  flex: 1 1 200px;                 /* grandit, rétrécit, base de 200px */
+  max-width: 260px;                /* évite qu'une carte seule sur sa ligne s'étire */
+  background: #ffffff;
+  border: 1px solid #e6d9de;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.carte .photo {
+  display: block;
+  width: 100%;
+  height: 220px;
+  object-fit: cover;               /* la photo remplit la zone sans se déformer */
+  object-position: center 20%;     /* garde le haut de la photo (visages, tissus) */
+}
+.carte .texte { padding: 16px; }
+.carte h3 { margin: 0 0 6px; }
+.carte p { margin: 0; color: #6d5460; }
+
+/* ===== 5. CONTACT : formulaire ===== */
+.formulaire { max-width: 560px; }
+.formulaire label { display: block; margin: 16px 0 6px; font-weight: bold; }
+.formulaire input,
+.formulaire select,
+.formulaire textarea {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #c9b5bd;
+  border-radius: 4px;
+  font: inherit;
+}
+.formulaire .bouton { margin-top: 20px; }
+
+/* ===== 6. PIED DE PAGE : 3 colonnes ===== */
+.pied {
+  background: #5b1a2b;
+  color: #fff7ee;
+  padding: 36px 0 16px;
+}
+.pied .conteneur {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;                 /* colonnes empilées sur petit écran */
+}
+.pied .colonne { flex: 1 1 200px; }
+.pied h3 { margin-top: 0; color: #e2b85a; }
+.pied a { color: #fff7ee; }
+.pied ul { list-style: none; margin: 0; padding: 0; }
+.copyright { text-align: center; margin: 24px 0 0; font-size: 0.9rem; }
+
+/* ===== 7. PAGE COLLECTION : sommaire et rubriques ===== */
+.sommaire {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  list-style: none;
+  margin: 20px 0 8px;
+  padding: 0;
+}
+.sommaire a {
+  display: block;
+  padding: 8px 18px;
+  border: 1px solid #5b1a2b;
+  border-radius: 999px;
+  text-decoration: none;
+}
+.sommaire a:hover { background: #5b1a2b; color: #ffffff; }
+
+/* les titres de rubrique ne passent pas sous l'en-tête sticky */
+.section h2 { scroll-margin-top: 90px; margin: 44px 0 12px; }
+.section h2:first-child { margin-top: 0; }
+
+/* ===== 8. PRIX sur les cartes ===== */
+.carte .prix {
+  margin-top: 10px;
+  color: #5b1a2b;
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+
+/* ===== 9. DEUX LANGUES : français / arabe ===== */
+/* chaque texte existe en 2 versions (.fr et .ar) ; on cache celle de l'autre langue */
+html[lang="fr"] .ar { display: none; }
+html[lang="ar"] .fr { display: none; }
+
+/* l'arabe se lit de droite à gauche (dir="rtl" ajouté par script.js) :
+   flex inverse tout seul l'ordre du logo, du menu et des colonnes */
+html[lang="ar"] body,
+html[lang="ar"] h1, html[lang="ar"] h2, html[lang="ar"] h3 {
+  font-family: Tahoma, "Segoe UI", Arial, sans-serif;
+}
+.bouton-langue {
+  padding: 6px 16px;
+  border: 1.5px solid #5b1a2b;
+  border-radius: 999px;
+  background: transparent;
+  color: #5b1a2b;
+  font: inherit;
+  cursor: pointer;
+}
+.bouton-langue:hover { background: #5b1a2b; color: #ffffff; }
+.menu { align-items: center; }
+
+/* ===== 10. VÊTEMENTS MIS EN AVANT : grandes cartes ===== */
+.carte { position: relative; display: flex; flex-direction: column; }
+.carte .texte { flex: 1; }
+.cartes-vetements .carte { flex: 1 1 300px; max-width: 350px; }
+.cartes-vetements .photo { height: 380px; }
+.intro { margin: 0 0 24px; color: #6d5460; }
+
+/* petites étiquettes « Vente » / « Location » sur la photo */
+.badges {
+  position: absolute;
+  top: 10px;
+  inset-inline-start: 10px;        /* côté début : gauche en français, droite en arabe */
+  z-index: 1;
+  display: flex;
+  gap: 6px;
+}
+.badge {
+  background: #b88a2e;
+  color: #ffffff;
+  font-size: 0.8rem;
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+.carte .bouton.petit { margin-top: 12px; padding: 8px 18px; font-size: 0.95rem; }
+
+/* emplacement d'une photo pas encore ajoutée */
+.carte .photo.vide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e9dde2;
+  color: #6d5460;
+}
+.autres { background: #ffffff; border-top: 1px solid #e6d9de; }
+
+.voir-tout { text-align: center; margin: 28px 0 0; }
